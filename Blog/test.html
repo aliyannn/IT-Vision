@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <style>
+        .container-fluid {
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        .mainDIV {
+            display: grid;
+            margin-top: 7%;
+            margin-bottom: 7%;
+        }
+
+        .main-grid {
+            display: grid;
+            grid-template-columns: repeat(2, auto);
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, auto);
+            grid-auto-rows: auto;
+            grid-gap: 1rem;
+            justify-content: start;
+            flex: 1;
+        }
+        
+        .card {
+            box-shadow: 0 0 10px 0 rgba(0,0,0,.15);
+            transition: all 0.25s;
+            text-align: center;
+            background-color: #ffffff;
+            width: 16rem;
+            border-radius: 5px;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+        }
+
+        .card img {
+            border-radius: 5px 5px 0 0;
+        }
+
+        .card h4 {
+            font-weight: 500;
+            font-size: 15px;
+            text-align: start;
+        }
+
+        .cardContainer {
+            padding: 32px;
+        }
+
+        .sidebarDIV {
+            position: relative;
+        }
+
+        .static-sidebar {
+            position: static;
+        }
+
+        .sidebar {
+            margin: 0;
+            padding: 0;
+            width: 200px;
+            position: fixed;
+            height: auto;
+        }
+
+        .sidebar a {
+            display: block;
+            color: black;
+            padding: 8px;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .sidebar a:hover:not(.active) {
+            background-color: #d23d15;
+            color: white;
+            transform: scale(1.1);
+        }
+
+        aside {
+            position: sticky;
+            top: 0;
+            margin-left: 30%;
+        }
+
+        div.content {
+            margin-left: 30%;
+            padding: 1px 16px;
+        }
+
+        .subTitleColumn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .spacer {
+            height: 100%;
+        }
+
+        /* Contact Form full section */
+        .g-recaptcha {
+            margin: 10px 5px;
+        }
+
+        input.btn.btn-primary {
+            color: #fff;
+        }
+
+        h3.main-little {
+            margin-top: 30px;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #000;
+        }
+
+        .mail-text p {
+            color: #fff;
+            font-size: 14px;
+            line-height: 25px;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .mail-text ul>li {
+            color: #fff;
+            font-size: 14px;
+            line-height: 25px;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            list-style: disc;
+            margin-left: 20px;
+        }
+
+        .info-details {
+            background: #fff;
+            padding: 15px 0px;
+            border-radius: 8px;
+        }
+
+        div#FormContainer {
+            background-image: linear-gradient(to right, rgba(255,0,0,0), rgba(210,61,21,1));
+            padding: 60px 0;
+        }
+
+        .formContent {
+            color: black;
+            text-align: center;
+            margin-bottom: 5%;
+        }
+
+        .formContent h2 {
+            font-size: 36px;
+            font-weight: 600;
+        }
+
+        .formContent h5 {
+            font-size: 22px;
+        }
+
+        .formContent p {
+            font-weight: 400;
+            font-size: 13px;
+        }
+
+        .info-details input {
+            border: 1px solid lightgrey;
+            border-radius: 5px;
+        }
+
+        /* popup css */
+        #mew-popthank {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.1);
+            visibility: hidden;
+            transition: transform 0.4s, top 0.4s;
+        }
+
+        .open-popup {
+            visibility: visible;
+            top: 50%;
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        @media screen and (min-width: 769px) and (max-width: 1550px) {
+            aside {
+                margin-left: 15%;
+            }
+        }
+
+        @media screen and (min-width: 701px) and (max-width: 1185px) {
+            .grid-container {
+                grid-template-columns: repeat(2, auto);
+            }
+        }
+
+        @media screen and (min-width: 701px) and (max-width: 768px) {
+            aside {
+                margin-left: 10%;
+            }
+
+            .sidebar {
+                margin-top: 8%;
+            }
+
+            .main-grid {
+                margin-top: 8%;
+            }
+
+            .subTitleColumn {
+                margin-left: 15%;
+            }
+        }
+
+        @media screen and (max-width: 700px) {
+            .grid-container {
+                grid-template-columns: repeat(1, auto);
+            }
+
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+                margin-top: 20%;
+            }
+            .sidebar a {
+                float: none;
+                text-align: center;
+            }
+
+            aside {
+                margin-left: 15%;
+            }
+
+            div.content {
+                margin-left: 20%;
+            }
+
+            .main-grid {
+                margin-top: 10%;
+                margin-left: 15%;
+            }
+
+            .subTitleColumn {
+                margin-left: -12%;
+            }
+        }
+
+        @media screen and (max-width: 400px) {
+            div.content {
+                margin-left: 15%;
+            }
+
+            .main-grid {
+                margin-top: 35%;
+                margin-right: 16%;
+            }
+
+            .sidebar {
+                margin-right: 15%;
+            }
+
+            .subTitleColumn {
+                margin-top: -30%;
+                margin-right: -15%;
+            }
+
+            .sidebar h4 {
+                margin-left: 10%;
+            }
+
+            .formContent h2 {
+                font-size: 30px;
+            }
+
+            .formContent h5 {
+                font-size: 18px;
+            }
+
+            .formContent p {
+                padding: 20px;
+            }
+
+            .contact-form {
+                padding: 30px;
+            }
+        }
+    </style>
+    <body>
+        <div class="mainDIV">
+            <div class="sidebarDIV">
+                <div class="main-grid">
+                    <aside>
+                        <div class="sidebar">
+                            <h4 style="font-size: 20px; font-weight: 500;">Blog
+                                Categories</h4>
+                            <a href="#home">Data Centers</a>
+                            <a href="#news">Networking</a>
+                            <a href="#contact">Computer Store</a>
+                            <a href="#about">Graphic Cards</a>
+                            <a href="#about">IT Hardware Reseller</a>
+                            <a href="#about">Internet of Things</a>
+                            <a href="#about">Network Switches</a>
+                            <a href="#about">Best Ethernet Switches</a>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+            <div>
+                <div class="subTitleColumn">
+                    <div class="main-grid">
+                        <h2
+                            style="font-size: 30px; font-weight: 600; text-align: center;">
+                            Recent Stories
+                        </h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid-container content">
+                <div class="card">
+                    <img
+                        src="https://cdn.varstreet.com/VarstreetXCStoreDesign/7473\Store_1875\ImageLibrary\item_133439163376820554_Img_Value of Computer Hardware.webp"
+                        style="width: 100%;">
+                    <div class="cardContainer">
+                        <h4>Make an Informed Choice: Cisco Partner
+                            Support or
+                            SmartNet</h4>
+                    </div>
+                </div>
+                <div class="card">
+                    <img
+                        src="https://cdn.varstreet.com/VarstreetXCStoreDesign/7473\Store_1875\ImageLibrary\item_133439163376820554_Img_Value of Computer Hardware.webp"
+                        style="width: 100%;">
+                    <div class="cardContainer">
+                        <h4>Cisco Software License Types: Find Your Ideal
+                            Match</h4>
+                    </div>
+                </div>
+                <div class="card">
+                    <img
+                        src="https://cdn.varstreet.com/VarstreetXCStoreDesign/7473\Store_1875\ImageLibrary\item_133439163376820554_Img_Value of Computer Hardware.webp"
+                        style="width: 100%;">
+                    <div class="cardContainer">
+                        <h4>Where to Buy Cisco Software Licenses in the UK?</h4>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img
+                        src="https://cdn.varstreet.com/VarstreetXCStoreDesign/7473\Store_1875\ImageLibrary\item_133439163376820554_Img_Value of Computer Hardware.webp"
+                        style="width: 100%;">
+                    <div class="cardContainer">
+                        <h4>Make an Informed Choice: Cisco Partner
+                            Support or
+                            SmartNet</h4>
+                    </div>
+                </div>
+                <div class="card">
+                    <img
+                        src="https://cdn.varstreet.com/VarstreetXCStoreDesign/7473\Store_1875\ImageLibrary\item_133439163376820554_Img_Value of Computer Hardware.webp"
+                        style="width: 100%;">
+                    <div class="cardContainer">
+                        <h4>Cisco Software License Types: Find Your Ideal
+                            Match</h4>
+                    </div>
+                </div>
+                <div class="card">
+                    <img
+                        src="https://cdn.varstreet.com/VarstreetXCStoreDesign/7473\Store_1875\ImageLibrary\item_133439163376820554_Img_Value of Computer Hardware.webp"
+                        style="width: 100%;">
+                    <div class="cardContainer">
+                        <h4>Where to Buy Cisco Software Licenses in the UK?</h4>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img
+                        src="https://cdn.varstreet.com/VarstreetXCStoreDesign/7473\Store_1875\ImageLibrary\item_133439163376820554_Img_Value of Computer Hardware.webp"
+                        style="width: 100%;">
+                    <div class="cardContainer">
+                        <h4>Make an Informed Choice: Cisco Partner
+                            Support or
+                            SmartNet</h4>
+                    </div>
+                </div>
+                <div class="card">
+                    <img
+                        src="https://cdn.varstreet.com/VarstreetXCStoreDesign/7473\Store_1875\ImageLibrary\item_133439163376820554_Img_Value of Computer Hardware.webp"
+                        style="width: 100%;">
+                    <div class="cardContainer">
+                        <h4>Cisco Software License Types: Find Your Ideal
+                            Match</h4>
+                    </div>
+                </div>
+                <div class="card">
+                    <img
+                        src="https://cdn.varstreet.com/VarstreetXCStoreDesign/7473\Store_1875\ImageLibrary\item_133439163376820554_Img_Value of Computer Hardware.webp"
+                        style="width: 100%;">
+                    <div class="cardContainer">
+                        <h4>Where to Buy Cisco Software Licenses in the UK?</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- <div>
+                <div class="grid-container content" style="margin-top: 30px;">
+                    <div class="card">
+                        <img
+                            src="https://cdn.varstreet.com/VarstreetXCStoreDesign/7473\Store_1875\ImageLibrary\item_133439163376820554_Img_Value of Computer Hardware.webp"
+                            style="width: 100%;">
+                        <div class="cardContainer">
+                            <h4>Make an Informed Choice: Cisco Partner
+                                Support or
+                                SmartNet</h4>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img
+                            src="https://cdn.varstreet.com/VarstreetXCStoreDesign/7473\Store_1875\ImageLibrary\item_133439163376820554_Img_Value of Computer Hardware.webp"
+                            style="width: 100%;">
+                        <div class="cardContainer">
+                            <h4>Cisco Software License Types: Find Your Ideal
+                                Match</h4>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img
+                            src="https://cdn.varstreet.com/VarstreetXCStoreDesign/7473\Store_1875\ImageLibrary\item_133439163376820554_Img_Value of Computer Hardware.webp"
+                            style="width: 100%;">
+                        <div class="cardContainer">
+                            <h4>Where to Buy Cisco Software Licenses in the UK?</h4>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+
+        <!-- <div>
+                <div class="grid-container content" style="margin-top: 30px;">
+                    <div class="card">
+                        <img
+                            src="https://cdn.varstreet.com/VarstreetXCStoreDesign/7473\Store_1875\ImageLibrary\item_133439163376820554_Img_Value of Computer Hardware.webp"
+                            style="width: 100%;">
+                        <div class="cardContainer">
+                            <h4>Make an Informed Choice: Cisco Partner
+                                Support or
+                                SmartNet</h4>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img
+                            src="https://cdn.varstreet.com/VarstreetXCStoreDesign/7473\Store_1875\ImageLibrary\item_133439163376820554_Img_Value of Computer Hardware.webp"
+                            style="width: 100%;">
+                        <div class="cardContainer">
+                            <h4>Cisco Software License Types: Find Your Ideal
+                                Match</h4>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img
+                            src="https://cdn.varstreet.com/VarstreetXCStoreDesign/7473\Store_1875\ImageLibrary\item_133439163376820554_Img_Value of Computer Hardware.webp"
+                            style="width: 100%;">
+                        <div class="cardContainer">
+                            <h4>Where to Buy Cisco Software Licenses in the UK?</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+
+        <div class="spacer"></div>
+
+        <div id="FormContainer" class="FormContainer">
+            <div class="page-content">
+                <div class="container">
+                    <div class="col-sm-12">
+                        <div class="formContent">
+                            <h2>Get
+                                in
+                                touch.</h2>
+                            <h5>We'd love to hear from
+                                you.</h5>
+                            <p>Give us a call, send an email or drop us a note
+                                and
+                                we'll
+                                call you back.</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 col-lg-12 col-xs-12">
+                            <div class="row">
+                                <div class="col-md-3 col-lg-3 col-xs-12"></div>
+
+                                <div class="col-md-6 col-lg-6 col-xs-12">
+                                    <div class="info-details">
+                                        <div
+                                            class="col-md-12 col-lg-12 col-xs-12">
+                                            <div class="form-group">
+                                                <label for="name"><span
+                                                        class="astrickcolor"></span></label>
+                                                <input type="text"
+                                                    class="form-control"
+                                                    id="name"
+                                                    placeholder="Your Name*"
+                                                    required />
+                                            </div>
+                                        </div>
+                                        <div
+                                            class="col-md-12 col-lg-12 col-xs-12">
+                                            <div class="form-group">
+                                                <label for="cname"><span
+                                                        class="astrickcolor"></span></label>
+                                                <input type="text"
+                                                    class="form-control"
+                                                    id="cname"
+                                                    placeholder="Company Name*"
+                                                    required />
+                                            </div>
+                                        </div>
+                                        <div
+                                            class="col-md-12 col-lg-12 col-xs-12">
+                                            <div class="form-group">
+                                                <label for="email"><span
+                                                        class="astrickcolor"></span></label>
+                                                <input type="text"
+                                                    class="form-control"
+                                                    id="email"
+                                                    placeholder="Your Email*"
+                                                    required />
+                                            </div>
+                                        </div>
+                                        <div
+                                            class="col-md-12 col-lg-12 col-xs-12">
+                                            <div class="form-group">
+                                                <label for="phone"><span
+                                                        class="astrickcolor"></span></label>
+                                                <input type="text"
+                                                    class="form-control"
+                                                    id="phone"
+                                                    placeholder="Your Phone Number*"
+                                                    required />
+                                            </div>
+                                        </div>
+                                        <div
+                                            class="col-md-12 col-lg-12 col-xs-12">
+                                            <div class="form-group">
+                                                <label for="message"><span
+                                                        class="astrickcolor"></span></label>
+                                                <input type="text"
+                                                    class="form-control"
+                                                    id="message"
+                                                    style="text-transform: capitalize;"
+                                                    placeholder="Type your message here!*"
+                                                    required />
+                                            </div>
+                                        </div>
+
+                                        <div
+                                            class="col-md-12 col-lg-12 col-xs-12">
+                                            <div class="form-group">
+                                                <input value="Submit"
+                                                    class="btn btn-primary"
+                                                    type="submit"
+                                                    style="width: 100%; border-radius: 5px;"
+                                                    onclick="ValidateHelp();" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3 col-lg-3 col-xs-12"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section id="mew-popthank">
+            <div
+                class="container d-flex flex-column justify-content-center align-items-center my-5">
+                <div
+                    class="card d-flex flex-column justify-content-center align-items-center"
+                    style="width: 400px;">
+                    <img
+                        src="https://cdn.varstreet.com/VarstreetXCStoreDesign/7306/Store_1676/ImageLibrary/item_133148880832725459_Img_tick.webp">
+                    <h4 class="text-primary font-weight-bold text-center">Thank
+                        you!</h4>
+                    <p>Your submission has been sent.</p>
+                </div>
+            </div>
+        </section>
+
+        <script
+            src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.16/dist/sweetalert2.all.min.js"></script>
+
+        <script>
+            function ValidateHelp() {
+                function IsEmail(strValue) {
+                    var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+                    return emailPattern.test(strValue);
+                }
+                var errors = new Array();
+                var k = -1;
+                var Fields = "";
+        
+                Fields = Fields + "Name ~" + document.getElementById("name").value + "|";
+                if (document.getElementById("name").value == "") {
+                    k = k == -1 ? 0 : ++k;
+                    errors[k] = "Please enter Name.\n";
+                }
+        
+                Fields = Fields + "Company Name ~" + document.getElementById("cname").value + "|";
+                if (document.getElementById("cname").value == "") {
+                    k = k == -1 ? 0 : ++k;
+                    errors[k] = "Please enter valid Company Name.\n";
+                }
+        
+                var Email = document.getElementById("email").value;
+                Fields = Fields + "Email ~" + document.getElementById("email").value + "|";
+                if (IsEmail(Email) == false) {
+                    k = k == -1 ? 0 : ++k;
+                    errors[k] = "Please enter valid Email.\n";
+                }
+        
+                Fields = Fields + "Phone ~" + document.getElementById("phone").value + "|";
+                if (document.getElementById("phone").value == "") {
+                    k = k == -1 ? 0 : ++k;
+                    errors[k] = "Please enter valid Phone.\n";
+                }
+        
+                Fields = Fields + "Message ~" + document.getElementById("message").value + "|";
+                if (document.getElementById("message").value == "") {
+                    k = k == -1 ? 0 : ++k;
+                    errors[k] = "Please enter Message.\n";
+                }
+        
+        
+                if (errors.length > 0) {
+                    var ErrorString = "Error occured while contacting Contact Us,\n";
+                    for (var i = 0; i < errors.length; i++) {
+                        ErrorString = ErrorString + (i + 1) + "]  " + errors[i];
+                    }
+                    alert(ErrorString);
+                    return false;
+                } else {
+                    var xhr = new XMLHttpRequest();
+                    var url = "https://www.itvisionnetworks.com/itvisionnetworks.com/Page/SendMailForm";
+                    xhr.open("POST", url, true);
+                    xhr.withCredentials = false;
+                    xhr.setRequestHeader("Content-Type", "application/json");
+                    xhr.onreadystatechange = function () {
+                        if (xhr.readyState === 4 && xhr.status === 200) {
+                            Swal.fire({
+                                position: 'middle',
+                                icon: 'success',
+                                title:'Thank you!',
+                                text: 'Your Submission has been sent',
+                                showConfirmButton: true,
+                                timer: 9000
+                            }).then((result) => {
+                                /* Read more about isConfirmed, isDenied below */
+                                if (result.isConfirmed) {
+                                    window.location.href = "/home";
+                                }
+                            });
+                        }
+                    };
+                    var data = JSON.stringify({
+                        EmailFrom: "sales@itvisionnetworks.com",
+                        EmailTo: "sales@itvisionnetworks.com",
+                        Subject: "Contact Us",
+                        EmailBody: "Contact Us",
+                        FileName: "Contact Us",
+                        Fields: escape(Fields),
+                        HtmlContent: escape(document.getElementById("FormContainer").innerHTML)
+                    });
+        
+                    xhr.send(data);
+                }
+            }
+        </script>
+    </body>
+</html>

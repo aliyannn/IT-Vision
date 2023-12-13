@@ -1,0 +1,193 @@
+.mainDivBody {
+    display: grid;
+    grid-auto-rows: auto;
+    justify-content: center;
+    align-items: center;
+    margin: 5% 0 10%;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    grid-auto-rows: auto;
+    grid-gap: 2rem;
+    justify-content: start;
+}
+
+.mainDivBody a {
+    font-weight: 500;
+    font-size: 16px;
+    text-decoration: none;
+    color: black;
+}
+
+.cardContainer {
+    padding: 30px 0 20px;
+}
+
+.card {
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, .15);
+    transition: all 0.25s;
+    text-align: center;
+    background-color: #ffffff;
+    width: 20rem;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-top: 2%;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.card img {
+    border-radius: 5px 5px 0 0;
+    width: 100%;
+    transition: transform 0.5s ease-in-out;
+}
+
+.card img:hover {
+    transform: scale(1.1);
+}
+
+.subTitleColumn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 30px;
+    font-weight: 600;
+}
+
+/* Contact Form full section */
+.g-recaptcha {
+    margin: 10px 5px;
+}
+
+input.btn.btn-primary {
+    color: #fff;
+}
+
+h3.main-little {
+    margin-top: 30px;
+    text-align: center;
+    margin-bottom: 40px;
+    color: #000;
+}
+
+.mail-text p {
+    color: #fff;
+    font-size: 14px;
+    line-height: 25px;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+.mail-text ul>li {
+    color: #fff;
+    font-size: 14px;
+    line-height: 25px;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    list-style: disc;
+    margin-left: 20px;
+}
+
+.info-details {
+    background: #fff;
+    padding: 15px 0px;
+    border-radius: 8px;
+}
+
+div#FormContainer {
+    background-image: linear-gradient(to right, rgba(255, 0, 0, 0), rgba(210, 61, 21, 1));
+    padding: 60px 0;
+}
+
+.formContent {
+    color: black;
+    text-align: center;
+    margin-bottom: 5%;
+}
+
+.formContent h2 {
+    font-size: 36px;
+    font-weight: 600;
+}
+
+.formContent h5 {
+    font-size: 22px;
+}
+
+.formContent p {
+    font-weight: 400;
+    font-size: 13px;
+}
+
+.info-details input {
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+}
+
+/* popup css */
+#mew-popthank {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.1);
+    visibility: hidden;
+    transition: transform 0.4s, top 0.4s;
+}
+
+.open-popup {
+    visibility: visible;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* Screen responsiveness for the entire blog page, will be adjusteed on all Laptop or smaller than laptop size */
+@media screen and (min-width: 701px) and (max-width: 1250px) {
+    .grid-container {
+        grid-template-columns: repeat(2, auto);
+    }
+}
+
+/* Screen responsiveness for the entire blog page, will be adjusteed on all desktop size */
+@media screen and (min-width: 1251px) and (max-width: 1550px) {
+    .grid-container {
+        grid-template-columns: repeat(3, auto);
+    }
+}
+
+/* Screen responsiveness for the entire blog page, will be adjusteed on all tablet size */
+@media screen and (min-width: 701px) and (max-width: 768px) {
+    .subTitleColumn {
+        margin-top: 15%;
+    }
+}
+
+/* Screen responsiveness for the entire blog page, will be adjusteed on all mobile size */
+@media screen and (max-width: 700px) {
+    .grid-container {
+        grid-template-columns: repeat(1, auto);
+    }
+
+    .subTitleColumn {
+        margin-left: -12%;
+    }
+}
+
+/* spaces adjustments on mobile view */
+@media screen and (max-width: 400px) {
+    .subTitleColumn {
+        margin-top: 40%;
+        margin-right: -12%;
+        font-size: 14px;
+    }
+
+    .grid-container {
+        margin-left: 3%;
+    }
+}

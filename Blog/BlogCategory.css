@@ -1,0 +1,100 @@
+.mainDivBody {
+    display: grid;
+    grid-auto-rows: auto;
+    justify-content: center;
+    align-items: center;
+    margin: 5% 0 10%;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    grid-auto-rows: auto;
+    grid-gap: 1rem;
+    justify-content: start;
+}
+
+.cardContainer {
+    padding: 32px;
+}
+
+.card {
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, .15);
+    transition: all 0.25s;
+    text-align: center;
+    background-color: #ffffff;
+    width: 20rem;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.card img {
+    border-radius: 5px 5px 0 0;
+    width: 100%;
+    transition: transform 0.5s ease-in-out;
+}
+
+.card img:hover {
+    transform: scale(1.1);
+}
+
+h1 {
+    font-size: 32px;
+}
+
+.card h4 {
+    font-weight: 500;
+    font-size: 15px;
+    text-align: start;
+}
+
+.subTitleColumn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.mainDivBody a {
+    font-weight: 500;
+    font-size: 16px;
+    text-decoration: none;
+    color: black;
+}
+
+@media screen and (min-width: 701px) and (max-width: 1185px) {
+    .grid-container {
+        grid-template-columns: repeat(2, auto);
+    }
+}
+
+@media screen and (min-width: 701px) and (max-width: 768px) {
+    .subTitleColumn {
+        margin-left: 15%;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .grid-container {
+        grid-template-columns: repeat(1, auto);
+    }
+
+    .subTitleColumn {
+        margin-left: -12%;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .subTitleColumn {
+        margin-top: -30%;
+        margin-right: -15%;
+    }
+}
