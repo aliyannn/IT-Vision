@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <style>
+    .choose-us {
+      background: #f7f7f7;
+      margin: 0px -30px;
+      padding: 60px 0px 100px 0px;
+    }
+
+    h2.object-header1 {
+      font-size: 30px;
+      text-align: center;
+      margin-bottom: 25px;
+      font-weight: 600;
+    }
+
+    .it-prod1 {
+      text-align: center;
+      margin-top: 30px;
+      padding: 20px 10px;
+      height: 320px;
+      border-right: 1px solid #e3dcdc;
+    }
+
+    .it-prod1 h6 > i.fa {
+      font-size: 40px;
+      color: #d23d15;
+      margin-bottom: 20px;
+      display: inline-block;
+      border-radius: 60px;
+      box-shadow: 0 0 2px #c8c3c3;
+      padding: 0.5em 0.6em;
+    }
+
+    .it-prod1 h4 {
+      font-weight: 500;
+      font-size: 18px;
+      margin-bottom: 15px;
+    }
+
+    .it-prod1 p {
+      font-size: 14px;
+      line-height: 25px;
+      letter-spacing: 0.5px;
+      color: #000;
+      font-weight: 400;
+    }
+
+    .subTitle {
+      background-color: #d23d15;
+      color: #ffffff;
+      padding: 2px 20px;
+      font-weight: 600;
+      font-size: 14px;
+      display: inline-block;
+    }
+
+    .subTitleColumn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    /* Screen responsiveness for mobile and tablet respectively */
+    @media only screen and (min-width: 481px) and (max-width: 768) {
+      .choose-us {
+        padding: 60px 100px;
+      }
+    }
+  </style>
+  <div class="choose-us"> <!-- Main body of the boxes -->
+    <div class="container"> <!-- Bootstrap built-in container -->
+      <!-- Boostrap grid structure to align three why choose us boxes sections respectivel -->
+      <div class="row">
+        <div class="col-12 subTitleColumn">
+          <p class="subTitle">The Growth Curve</p>
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <h2 class="object-header1">Choose Top Picks</h2>
+        </div>
+      </div>
+      <!-- Bootstrap grid structure for three boxes, three columns have been adjusted accordingly in a single row (Responsive on all screens) -->
+      <div class="row">
+        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+          <!-- Outer main body of a single box section -->
+          <div class="it-prod1">
+            <h6><i class="fa fa-user-circle-o" aria-hidden="true"></i></h6>
+            <h4 style="text-transform: capitalize;">Discounted IT Gear - best IT
+              solution</h4>
+            <p style="padding: 0px">
+              IT Vision is the most trusted and verified partner, possessing the
+              ability to surpass customer expectations. Our commitment goes
+              above and beyond, assisting you throughout the buying process.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+          <div class="it-prod1">
+            <h6><i class="fa fa-check-circle" aria-hidden="true"></i></h6>
+            <h4 style="text-transform: capitalize;">Original guaranteed IT
+              equipment</h4>
+            <p style="padding: 0px">
+              Being the best IT reseller, we ensure you the best IT hardware
+              from the world's top computer distributors. We guarantee excellent
+              quality and provide on-demand, premium IT products and equipment.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-12 col-sm-6 col-xs-12">
+          <div class="it-prod1" style="border-right: 0px">
+            <h6><i class="fa fa-files-o" aria-hidden="true"></i></h6>
+            <h4 style="text-transform: capitalize;">Smooth and fastest delivery</h4>
+            <p style="padding: 0px">
+              As an established managed IT firm, we focus on IT services,
+              providing varied clients with comprehensive business IT services,
+              including solutions and support. We offer IT solutions at the
+              corporate and
+              enterprise level.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</html>
