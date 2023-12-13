@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <style>
+        .mainDivBody {
+            display: grid;
+            grid-auto-rows: auto;
+            justify-content: center;
+            align-items: center;
+            margin: 5% 0 10%;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(4, auto);
+            grid-auto-rows: auto;
+            grid-gap: 2rem;
+            justify-content: start;
+        }
+
+        .mainDivBody a {
+            font-weight: 500;
+            font-size: 16px;
+            text-decoration: none;
+            color: black;
+        }
+
+        .cardContainer {
+            padding: 30px 0 20px;
+        }
+        
+        .card {
+            box-shadow: 0 0 10px 0 rgba(0,0,0,.15);
+            transition: all 0.25s;
+            text-align: center;
+            background-color: #ffffff;
+            width: 20rem;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-top: 2%;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+        }
+
+        .card img {
+            border-radius: 5px 5px 0 0;
+            width: 100%;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .card img:hover {
+            transform: scale(1.1);
+        }
+
+        .subTitleColumn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 30px;
+            font-weight: 600;
+        }
+
+        /* Contact Form full section */
+        .g-recaptcha {
+            margin: 10px 5px;
+        }
+
+        input.btn.btn-primary {
+            color: #fff;
+        }
+
+        h3.main-little {
+            margin-top: 30px;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #000;
+        }
+
+        .mail-text p {
+            color: #fff;
+            font-size: 14px;
+            line-height: 25px;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .mail-text ul>li {
+            color: #fff;
+            font-size: 14px;
+            line-height: 25px;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            list-style: disc;
+            margin-left: 20px;
+        }
+
+        .info-details {
+            background: #fff;
+            padding: 15px 0px;
+            border-radius: 8px;
+        }
+
+        div#FormContainer {
+            background-image: linear-gradient(to right, rgba(255,0,0,0), rgba(210,61,21,1));
+            padding: 60px 0;
+        }
+
+        .formContent {
+            color: black;
+            text-align: center;
+            margin-bottom: 5%;
+        }
+
+        .formContent h2 {
+            font-size: 36px;
+            font-weight: 600;
+        }
+
+        .formContent h5 {
+            font-size: 22px;
+        }
+
+        .formContent p {
+            font-weight: 400;
+            font-size: 13px;
+        }
+
+        .info-details input {
+            border: 1px solid lightgrey;
+            border-radius: 5px;
+        }
+
+        /* popup css */
+        #mew-popthank {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.1);
+            visibility: hidden;
+            transition: transform 0.4s, top 0.4s;
+        }
+
+        .open-popup {
+            visibility: visible;
+            top: 50%;
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        /* Screen responsiveness for the entire blog page, will be adjusteed on all Laptop or smaller than laptop size */
+        @media screen and (min-width: 701px) and (max-width: 1250px) {
+            .grid-container {
+                grid-template-columns: repeat(2, auto);
+            }
+        }
+
+        /* Screen responsiveness for the entire blog page, will be adjusteed on all desktop size */
+        @media screen and (min-width: 1251px) and (max-width: 1550px) {
+            .grid-container {
+                grid-template-columns: repeat(3, auto);
+            }
+        }
+
+        /* Screen responsiveness for the entire blog page, will be adjusteed on all tablet size */
+        @media screen and (min-width: 701px) and (max-width: 768px) {
+            .subTitleColumn {
+                margin-top: 15%;
+            }
+        }
+
+        /* Screen responsiveness for the entire blog page, will be adjusteed on all mobile size */
+        @media screen and (max-width: 700px) {
+            .grid-container {
+                grid-template-columns: repeat(1, auto);
+            }
+
+            .subTitleColumn {
+                margin-left: -12%;
+            }
+        }
+
+        /* spaces adjustments on mobile view */
+        @media screen and (max-width: 400px) {
+            .subTitleColumn {
+                margin-top: 40%;
+                margin-right: -12%;
+                font-size: 14px;
+            }
+
+            .grid-container {
+                margin-left: 3%;
+            }
+        }
+    </style>
+    <body>
+        <!-- Main div body will create a CSS grid layout for the blog cards, *check CSS for more info* -->
+        <div class="mainDivBody">
+            <div class="subTitleColumn">
+                <h1>Read Our Blogs</h1>
+            </div>
+            <!-- Initially, grid-container will allow only 4 cards (columns) in a row horizontally untill the breakdown for screen sizes respectively, *check CSS for more info* -->
+            <div class="grid-container">
+                <a
+                    href="https://itvisionnetworks.com/product-reviews-and-comparisons"
+                    target="_blank">
+                    <div class="card">
+                        <img
+                            src="https://cdn.varstreet.com/VarstreetXCStoreDesign/7473\Store_1875\ImageLibrary\item_133467815048702886_Img_Product Reviews and Companies - IT Vision INC.webp">
+                        <div class="cardContainer">
+                            <h4>Product Reviews and Comparisons</h4>
+                        </div>
+                    </div>
+                </a>
+                <a href target="_blank">
+                    <div class="card">
+                        <img
+                            src="https://cdn.varstreet.com/VarstreetXCStoreDesign/7473\Store_1875\ImageLibrary\item_133467817063532216_Img_Industry Trends and News - IT Vision INC.webp"
+                            style="width: 100%;">
+                        <div class="cardContainer">
+                            <h4>Industry Trends and News</h4>
+                        </div>
+                    </div>
+                </a>
+                <a
+                    href="https://itvisionnetworks.com/it-hardware-tips-and-tutorials"
+                    target="_blank">
+                    <div class="card">
+                        <img
+                            src="https://cdn.varstreet.com/VarstreetXCStoreDesign/7473\Store_1875\ImageLibrary\item_133467818305987606_Img_IT Hardware Tips - IT Vision INC.webp"
+                            style="width: 100%;">
+                        <div class="cardContainer">
+                            <h4>IT Hardware Tips and Tutorials</h4>
+                        </div>
+                    </div>
+                </a>
+
+                <a href target="_blank">
+                    <div class="card">
+                        <img
+                            src="https://cdn.varstreet.com/VarstreetXCStoreDesign/7473\Store_1875\ImageLibrary\item_133467820018716786_Img_Security Best Practices - IT Vision INC.webp"
+                            style="width: 100%;">
+                        <div class="cardContainer">
+                            <h4>Security Best Practices</h4>
+                        </div>
+                    </div>
+                </a>
+                <a href target="_blank">
+                    <div class="card">
+                        <img
+                            src="https://cdn.varstreet.com/VarstreetXCStoreDesign/7473\Store_1875\ImageLibrary\item_133467823665706971_Img_Case Studies - IT Vision INC.webp"
+                            style="width: 100%;">
+                        <div class="cardContainer">
+                            <h4>Case Studies</h4>
+                        </div>
+                    </div>
+                </a>
+                <a href="https://itvisionnetworks.com/it-equipments"
+                    target="_blank">
+                    <div class="card">
+                        <img
+                            src="https://cdn.varstreet.com/VarstreetXCStoreDesign/7473\Store_1875\ImageLibrary\item_133467824698990297_Img_IT Equipments - IT Vision INC.webp"
+                            style="width: 100%;">
+                        <div class="cardContainer">
+                            <h4>IT Equipments</h4>
+                        </div>
+                    </div>
+                </a>
+                <a href target="_blank">
+                    <div class="card">
+                        <img
+                            src="https://cdn.varstreet.com/VarstreetXCStoreDesign/7473\Store_1875\ImageLibrary\item_133467823494138334_Img_Buyer's Guide - IT Vision INC.webp"
+                            style="width: 100%;">
+                        <div class="cardContainer">
+                            <h4>Buyer's Guides</h4>
+                        </div>
+                    </div>
+                </a>
+                <a href target="_blank">
+                    <div class="card">
+                        <img
+                            src="https://cdn.varstreet.com/VarstreetXCStoreDesign/7473\Store_1875\ImageLibrary\item_133467829446901291_Img_Sustainable IT Practices - IT Vision INC.webp"
+                            style="width: 100%;">
+                        <div class="cardContainer">
+                            <h4>Sustainable IT Practices</h4>
+                        </div>
+                    </div>
+                </a>
+                <a href target="_blank">
+                    <div class="card">
+                        <img
+                            src="https://cdn.varstreet.com/VarstreetXCStoreDesign/7473\Store_1875\ImageLibrary\item_133467830565827272_Img_Remote Work Solutions - IT Vision INC.webp"
+                            style="width: 100%;">
+                        <div class="cardContainer">
+                            <h4>Remote Work Solutions</h4>
+                        </div>
+                    </div>
+                </a>
+                <a href target="_blank">
+                    <div class="card">
+                        <img
+                            src="https://cdn.varstreet.com/VarstreetXCStoreDesign/7473\Store_1875\ImageLibrary\item_133467831323880114_Img_Hardware for Industries - IT Vision INC.webp"
+                            style="width: 100%;">
+                        <div class="cardContainer">
+                            <h4>Hardware for Specific Industries</h4>
+                        </div>
+                    </div>
+                </a>
+                <a href target="_blank">
+                    <div class="card">
+                        <img
+                            src="https://cdn.varstreet.com/VarstreetXCStoreDesign/7473\Store_1875\ImageLibrary\item_133467831705471936_Img_Software Compatibility - IT Vision INC.webp"
+                            style="width: 100%;">
+                        <div class="cardContainer">
+                            <h4>Software Compatibility</h4>
+                        </div>
+                    </div>
+                </a>
+                <a href target="_blank">
+                    <div class="card">
+                        <img
+                            src="https://cdn.varstreet.com/VarstreetXCStoreDesign/7473\Store_1875\ImageLibrary\item_133467831788914311_Img_Data Centre Solutions - IT Vision INC.webp"
+                            style="width: 100%;">
+                        <div class="cardContainer">
+                            <h4>Datacenter Solutions</h4>
+                        </div>
+                    </div>
+                </a>
+                <a href target="_blank">
+                    <div class="card">
+                        <img
+                            src="https://cdn.varstreet.com/VarstreetXCStoreDesign/7473\Store_1875\ImageLibrary\item_133467832023405365_Img_Small Business Solutions - IT Vision INC.webp"
+                            style="width: 100%;">
+                        <div class="cardContainer">
+                            <h4>Small Business Solutions</h4>
+                        </div>
+                    </div>
+                </a>
+                <a href target="_blank">
+                    <div class="card">
+                        <img
+                            src="https://cdn.varstreet.com/VarstreetXCStoreDesign/7473\Store_1875\ImageLibrary\item_133467832228327449_Img_Value Added Reseller - IT Vision INC.webp"
+                            style="width: 100%;">
+                        <div class="cardContainer">
+                            <h4>Value Added Resellers</h4>
+                        </div>
+                    </div>
+                </a>
+                <a href target="_blank">
+                    <div class="card">
+                        <img
+                            src="https://cdn.varstreet.com/VarstreetXCStoreDesign/7473\Store_1875\ImageLibrary\item_133467832488295572_Img_Gaming Hardware - IT Vision INC.webp"
+                            style="width: 100%;">
+                        <div class="cardContainer">
+                            <h4>Gaming Hardware</h4>
+                        </div>
+                    </div>
+                </a>
+                <a href target="_blank">
+                    <div class="card">
+                        <img
+                            src="https://cdn.varstreet.com/VarstreetXCStoreDesign/7473\Store_1875\ImageLibrary\item_133467832618088708_Img_Refurbed IT Equipment - IT Vision INC.webp"
+                            style="width: 100%;">
+                        <div class="cardContainer">
+                            <h4>Refurbished IT Equipment</h4>
+                        </div>
+                    </div>
+                </a>
+                <a href target="_blank">
+                    <div class="card">
+                        <img
+                            src="https://cdn.varstreet.com/VarstreetXCStoreDesign/7473\Store_1875\ImageLibrary\item_133467832951773721_Img_Cloud Hardware - IT Vision INC.webp"
+                            style="width: 100%;">
+                        <div class="cardContainer">
+                            <h4>Hardware in the Cloud</h4>
+                        </div>
+                    </div>
+                </a>
+                <a href target="_blank">
+                    <div class="card">
+                        <img
+                            src="https://cdn.varstreet.com/VarstreetXCStoreDesign/7473\Store_1875\ImageLibrary\item_133467833210205711_Img_Emerging Technologies - IT Vision INC.webp"
+                            style="width: 100%;">
+                        <div class="cardContainer">
+                            <h4>Emerging Technologies</h4>
+                        </div>
+                    </div>
+                </a>
+                <a href target="_blank">
+                    <div class="card">
+                        <img
+                            src="https://cdn.varstreet.com/VarstreetXCStoreDesign/7473\Store_1875\ImageLibrary\item_133467833360358624_Img_DIY Solutions - IT Vision INC.webp"
+                            style="width: 100%;">
+                        <div class="cardContainer">
+                            <h4>DIY Solutions</h4>
+                        </div>
+                    </div>
+                </a>
+                <a
+                    href="https://itvisionnetworks.com/hardware-reseller-insights"
+                    target="_blank">
+                    <div class="card">
+                        <img
+                            src="https://cdn.varstreet.com/VarstreetXCStoreDesign/7473\Store_1875\ImageLibrary\item_133467833763376420_Img_Hardware Reseller Insights - IT Vision INC.webp"
+                            style="width: 100%;">
+                        <div class="cardContainer">
+                            <h4>Hardware Reseller Insights</h4>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <!-- Call form for customers to get in touch -->
+        <!-- Main outer body of the form for styling the background and spaces of the form section -->
+        <div id="FormContainer" class="FormContainer">
+            <div class="page-content">
+                <div class="container">
+                    <div class="col-sm-12">
+                        <div class="formContent">
+                            <h2>Get in touch.</h2>
+                            <h5>We'd love to hear from you.</h5>
+                            <p>Give us a call, send an email or drop us a note
+                                and we'll call you back.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 col-lg-12 col-xs-12">
+                            <div class="row">
+                                <div class="col-md-3 col-lg-3 col-xs-12"></div>
+
+                                <div class="col-md-6 col-lg-6 col-xs-12">
+                                    <div class="info-details">
+                                        <div
+                                            class="col-md-12 col-lg-12 col-xs-12">
+                                            <div class="form-group">
+                                                <label for="name"><span
+                                                        class="astrickcolor"></span></label>
+                                                <input type="text"
+                                                    class="form-control"
+                                                    id="name"
+                                                    placeholder="Your Name*"
+                                                    required />
+                                            </div>
+                                        </div>
+                                        <div
+                                            class="col-md-12 col-lg-12 col-xs-12">
+                                            <div class="form-group">
+                                                <label for="cname"><span
+                                                        class="astrickcolor"></span></label>
+                                                <input type="text"
+                                                    class="form-control"
+                                                    id="cname"
+                                                    placeholder="Company Name*"
+                                                    required />
+                                            </div>
+                                        </div>
+                                        <div
+                                            class="col-md-12 col-lg-12 col-xs-12">
+                                            <div class="form-group">
+                                                <label for="email"><span
+                                                        class="astrickcolor"></span></label>
+                                                <input type="text"
+                                                    class="form-control"
+                                                    id="email"
+                                                    placeholder="Your Email*"
+                                                    required />
+                                            </div>
+                                        </div>
+                                        <div
+                                            class="col-md-12 col-lg-12 col-xs-12">
+                                            <div class="form-group">
+                                                <label for="phone"><span
+                                                        class="astrickcolor"></span></label>
+                                                <input type="text"
+                                                    class="form-control"
+                                                    id="phone"
+                                                    placeholder="Your Phone Number*"
+                                                    required />
+                                            </div>
+                                        </div>
+                                        <div
+                                            class="col-md-12 col-lg-12 col-xs-12">
+                                            <div class="form-group">
+                                                <label for="message"><span
+                                                        class="astrickcolor"></span></label>
+                                                <input type="text"
+                                                    class="form-control"
+                                                    id="message"
+                                                    style="text-transform: capitalize;"
+                                                    placeholder="Type your message here!*"
+                                                    required />
+                                            </div>
+                                        </div>
+
+                                        <div
+                                            class="col-md-12 col-lg-12 col-xs-12">
+                                            <div class="form-group">
+                                                <input value="Submit"
+                                                    class="btn btn-primary"
+                                                    type="submit"
+                                                    style="width: 100%; border-radius: 5px;"
+                                                    onclick="ValidateHelp();" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3 col-lg-3 col-xs-12"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section id="mew-popthank">
+            <div
+                class="container d-flex flex-column justify-content-center align-items-center my-5">
+                <div
+                    class="card d-flex flex-column justify-content-center align-items-center"
+                    style="width: 400px;">
+                    <img
+                        src="https://cdn.varstreet.com/VarstreetXCStoreDesign/7306/Store_1676/ImageLibrary/item_133148880832725459_Img_tick.webp">
+                    <h4 class="text-primary font-weight-bold text-center">Thank
+                        you!</h4>
+                    <p>Your submission has been sent.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- JavaScript for the form functionality -->
+        <script
+            src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.16/dist/sweetalert2.all.min.js"></script>
+
+        <script>
+            function ValidateHelp() {
+                function IsEmail(strValue) {
+                    var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+                    return emailPattern.test(strValue);
+                }
+                var errors = new Array();
+                var k = -1;
+                var Fields = "";
+        
+                Fields = Fields + "Name ~" + document.getElementById("name").value + "|";
+                if (document.getElementById("name").value == "") {
+                    k = k == -1 ? 0 : ++k;
+                    errors[k] = "Please enter Name.\n";
+                }
+        
+                Fields = Fields + "Company Name ~" + document.getElementById("cname").value + "|";
+                if (document.getElementById("cname").value == "") {
+                    k = k == -1 ? 0 : ++k;
+                    errors[k] = "Please enter valid Company Name.\n";
+                }
+        
+                var Email = document.getElementById("email").value;
+                Fields = Fields + "Email ~" + document.getElementById("email").value + "|";
+                if (IsEmail(Email) == false) {
+                    k = k == -1 ? 0 : ++k;
+                    errors[k] = "Please enter valid Email.\n";
+                }
+        
+                Fields = Fields + "Phone ~" + document.getElementById("phone").value + "|";
+                if (document.getElementById("phone").value == "") {
+                    k = k == -1 ? 0 : ++k;
+                    errors[k] = "Please enter valid Phone.\n";
+                }
+        
+                Fields = Fields + "Message ~" + document.getElementById("message").value + "|";
+                if (document.getElementById("message").value == "") {
+                    k = k == -1 ? 0 : ++k;
+                    errors[k] = "Please enter Message.\n";
+                }
+        
+        
+                if (errors.length > 0) {
+                    var ErrorString = "Error occured while contacting Contact Us,\n";
+                    for (var i = 0; i < errors.length; i++) {
+                        ErrorString = ErrorString + (i + 1) + "]  " + errors[i];
+                    }
+                    alert(ErrorString);
+                    return false;
+                } else {
+                    var xhr = new XMLHttpRequest();
+                    var url = "https://www.itvisionnetworks.com/itvisionnetworks.com/Page/SendMailForm";
+                    xhr.open("POST", url, true);
+                    xhr.withCredentials = false;
+                    xhr.setRequestHeader("Content-Type", "application/json");
+                    xhr.onreadystatechange = function () {
+                        if (xhr.readyState === 4 && xhr.status === 200) {
+                            Swal.fire({
+                                position: 'middle',
+                                icon: 'success',
+                                title:'Thank you!',
+                                text: 'Your Submission has been sent',
+                                showConfirmButton: true,
+                                timer: 9000
+                            }).then((result) => {
+                                /* Read more about isConfirmed, isDenied below */
+                                if (result.isConfirmed) {
+                                    window.location.href = "/home";
+                                }
+                            });
+                        }
+                    };
+                    var data = JSON.stringify({
+                        EmailFrom: "sales@itvisionnetworks.com",
+                        EmailTo: "sales@itvisionnetworks.com",
+                        Subject: "Contact Us",
+                        EmailBody: "Contact Us",
+                        FileName: "Contact Us",
+                        Fields: escape(Fields),
+                        HtmlContent: escape(document.getElementById("FormContainer").innerHTML)
+                    });
+        
+                    xhr.send(data);
+                }
+            }
+        </script>
+    </body>
+</html>

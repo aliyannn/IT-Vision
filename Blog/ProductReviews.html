@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <style>
+        .mainDivBody {
+            display: grid;
+            grid-auto-rows: auto;
+            justify-content: center;
+            align-items: center;
+            margin: 5% 0 10%;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(4, auto);
+            grid-auto-rows: auto;
+            grid-gap: 2rem;
+            justify-content: start;
+        }
+
+        .cardContainer {
+            padding: 30px 0 20px;
+        }
+        
+        .card {
+            box-shadow: 0 0 10px 0 rgba(0,0,0,.15);
+            transition: all 0.25s;
+            text-align: center;
+            background-color: #ffffff;
+            width: 20rem;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-top: 2%;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+        }
+
+        .card img {
+            border-radius: 5px 5px 0 0;
+            width: 100%;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .card img:hover {
+            transform: scale(1.1);
+        }
+
+        .card h4 {
+            font-weight: 500;
+            font-size: 16px;
+        }
+
+        .subTitleColumn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 30px;
+            font-weight: 600;
+        }
+
+        @media screen and (min-width: 701px) and (max-width: 1250px) {
+            .grid-container {
+                grid-template-columns: repeat(2, auto);
+            }
+        }
+
+        @media screen and (min-width: 1251px) and (max-width: 1550px) {
+            .grid-container {
+                grid-template-columns: repeat(3, auto);
+            }
+        }
+
+        @media screen and (min-width: 701px) and (max-width: 768px) {
+            .subTitleColumn {
+                margin-top: 15%;
+            }
+        }
+
+        @media screen and (max-width: 700px) {
+            .grid-container {
+                grid-template-columns: repeat(1, auto);
+            }
+
+            .subTitleColumn {
+                margin-left: -12%;
+            }
+        }
+
+        @media screen and (max-width: 400px) {
+            .subTitleColumn {
+                margin-top: 40%;
+                margin-right: -12%;
+                font-size: 14px;
+            }
+
+            .grid-container {
+                margin-left: 3%;
+            }
+        }
+    </style>
+    <body>
+        <div class="mainDivBody">
+            <div class="subTitleColumn">
+                <h1>Product Reviews and Comparisons</h1>
+            </div>
+            <div class="grid-container">
+                <div class="card">
+                    <img
+                        src="https://cdn.varstreet.com/VarstreetXCStoreDesign/7473\Store_1875\ImageLibrary\item_133439163376820554_Img_Value of Computer Hardware.webp">
+                    <div class="cardContainer">
+                        <h4>Make an Informed Choice: Cisco Partner
+                            Support or
+                            SmartNet</h4>
+                    </div>
+                </div>
+                <div class="card">
+                    <img
+                        src="https://cdn.varstreet.com/VarstreetXCStoreDesign/7473\Store_1875\ImageLibrary\item_133439163376820554_Img_Value of Computer Hardware.webp"
+                        style="width: 100%;">
+                    <div class="cardContainer">
+                        <h4>Cisco Software License Types: Find Your Ideal
+                            Match</h4>
+                    </div>
+                </div>
+                <div class="card">
+                    <img
+                        src="https://cdn.varstreet.com/VarstreetXCStoreDesign/7473\Store_1875\ImageLibrary\item_133439163376820554_Img_Value of Computer Hardware.webp"
+                        style="width: 100%;">
+                    <div class="cardContainer">
+                        <h4>Where to Buy Cisco Software Licenses in the UK?</h4>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img
+                        src="https://cdn.varstreet.com/VarstreetXCStoreDesign/7473\Store_1875\ImageLibrary\item_133439163376820554_Img_Value of Computer Hardware.webp"
+                        style="width: 100%;">
+                    <div class="cardContainer">
+                        <h4>Make an Informed Choice: Cisco Partner
+                            Support or
+                            SmartNet</h4>
+                    </div>
+                </div>
+                <div class="card">
+                    <img
+                        src="https://cdn.varstreet.com/VarstreetXCStoreDesign/7473\Store_1875\ImageLibrary\item_133439163376820554_Img_Value of Computer Hardware.webp"
+                        style="width: 100%;">
+                    <div class="cardContainer">
+                        <h4>Cisco Software License Types: Find Your Ideal
+                            Match</h4>
+                    </div>
+                </div>
+                <div class="card">
+                    <img
+                        src="https://cdn.varstreet.com/VarstreetXCStoreDesign/7473\Store_1875\ImageLibrary\item_133439163376820554_Img_Value of Computer Hardware.webp"
+                        style="width: 100%;">
+                    <div class="cardContainer">
+                        <h4>Where to Buy Cisco Software Licenses in the UK?</h4>
+                    </div>
+                </div>
+                <div class="card">
+                    <img
+                        src="https://cdn.varstreet.com/VarstreetXCStoreDesign/7473\Store_1875\ImageLibrary\item_133439163376820554_Img_Value of Computer Hardware.webp"
+                        style="width: 100%;">
+                    <div class="cardContainer">
+                        <h4>Where to Buy Cisco Software Licenses in the UK?</h4>
+                    </div>
+                </div>
+                <div class="card">
+                    <img
+                        src="https://cdn.varstreet.com/VarstreetXCStoreDesign/7473\Store_1875\ImageLibrary\item_133439163376820554_Img_Value of Computer Hardware.webp"
+                        style="width: 100%;">
+                    <div class="cardContainer">
+                        <h4>Where to Buy Cisco Software Licenses in the UK?</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
