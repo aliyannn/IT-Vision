@@ -1,2 +1,2 @@
 # IT-Vision
-IT Vision website for selling IT Products in USA
+Code repo for IT products E-commerce Website - USA
